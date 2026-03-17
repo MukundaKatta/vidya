@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vidya"
+version = "0.1.0"
+description = "AI Adaptive Tutoring Platform"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Mukunda Katta" },
+]
+dependencies = [
+    "anthropic>=0.39.0",
+    "click>=8.1.0",
+    "pydantic>=2.0.0",
+    "rich>=13.0.0",
+]
+
+[project.scripts]
+vidya = "vidya.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vidya"]
