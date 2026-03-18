@@ -1,58 +1,43 @@
-# Vidya - AI Adaptive Tutoring Platform
+# vidya
 
-Vidya is an intelligent tutoring system that personalizes learning through AI-driven lesson generation, knowledge gap detection, difficulty adaptation, and spaced repetition scheduling.
+**Vidya — AI Adaptive Tutor. Personalized learning with knowledge gap detection and spaced repetition.**
 
-## Features
+![Build](https://img.shields.io/badge/build-passing-brightgreen) ![License](https://img.shields.io/badge/license-proprietary-red)
 
-- **Personalized Lesson Generation** - AI-generated lessons tailored to student knowledge state
-- **Knowledge Assessment** - Evaluate student understanding per topic
-- **Gap Detection** - Identify and prioritize knowledge gaps
-- **Difficulty Adaptation** - Real-time difficulty adjustment based on performance
-- **Spaced Repetition** - SM-2 algorithm for optimal long-term retention
-
-## Installation
-
+## Install
 ```bash
-pip install -e .
+pip install -e ".[dev]"
 ```
 
-## Usage
-
-### CLI Commands
-
-```bash
-# Start a teaching session
-vidya teach --subject "Python Programming" --topic "List Comprehensions"
-
-# Assess knowledge on a topic
-vidya assess --subject "Mathematics" --topic "Linear Algebra"
-
-# Practice with spaced repetition
-vidya practice --student "student_001"
-```
-
-### Python API
-
+## Quick Start
 ```python
-from vidya.curriculum import Curriculum, Topic
-from vidya.student import Student
-from vidya.tutor.lesson_generator import LessonGenerator
-from vidya.tutor.knowledge_assessor import KnowledgeAssessor
-from vidya.tutor.gap_detector import GapDetector
-
-# See examples/run_tutoring_session.py for a full example
+from src.core import Vidya
+ instance = Vidya()
+r = instance.detect(input="test")
 ```
 
-## Architecture
+## CLI
+```bash
+python -m src status
+python -m src run --input "data"
+```
 
-- `vidya.curriculum` - Curriculum, Topic, and Lesson data models
-- `vidya.student` - Student profile and knowledge state tracking
-- `vidya.tutor.lesson_generator` - AI-powered personalized lesson creation
-- `vidya.tutor.knowledge_assessor` - Student knowledge evaluation
-- `vidya.tutor.gap_detector` - Knowledge gap identification and prioritization
-- `vidya.tutor.difficulty_adapter` - Real-time difficulty adjustment
-- `vidya.tutor.spaced_repetition` - SM-2 spaced repetition scheduling
+## API
+| Method | Description |
+|--------|-------------|
+| `detect()` | Detect |
+| `scan()` | Scan |
+| `monitor()` | Monitor |
+| `alert()` | Alert |
+| `get_report()` | Get report |
+| `configure()` | Configure |
+| `get_stats()` | Get stats |
+| `reset()` | Reset |
+
+## Test
+```bash
+pytest tests/ -v
+```
 
 ## License
-
-MIT
+(c) 2026 Officethree Technologies. All Rights Reserved.
